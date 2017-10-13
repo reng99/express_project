@@ -1,0 +1,23 @@
+{
+  "name": "express_project",
+  "version": "1.0.0",
+  "description": "this is an express project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reng99/express_project.git"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "reng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reng99/express_project/issues"
+  },
+  "homepage": "https://github.com/reng99/express_project#readme"
+}
