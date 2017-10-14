@@ -24,6 +24,8 @@
 
 3. 使用的库，jquery bootstrap
 
+4.使用后台框架 express
+
 > 数据库
 
 1. 数据库为mongodb
