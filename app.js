@@ -10,12 +10,34 @@
 
 // 加载express模块
 var express = require('express');
+// 加载模版处理模块
+var swig = require('swig');
 // 创建app应用 === 等价于原生的node中的http.createServer();
 var app =express();
 
+
+// 配置应用模版
+// 定义当前应用所使用的模版引擎
+// 第一个参数表示模版引擎的名称，同时也是模版文件的后缀,第二个参数表示用于处理模版内容的方法
+app.engine('html',swig.renderFile);
+// 设置模版文件存放的目录,第一个参数必须是views,不能变更，第二个参数是目录
+app.set('views','./views');
+// 注册所使用的模版引擎，第一个参数必须是view engine,第二个参数和app.engine这个方法中定义的模版引擎的第一个参数一致
+app.set('view engine','html');
+// 在开发的过程当中，需要取消模版缓存,这样刷新页面就有效果了
+swig.setDefaults({
+    cache:false
+});
+
+
 // 首页
 app.get('/',function(req,res,next){
-    res.send('<h1>hello world!!</h1>');
+    // res.send('<h1>hello world!!</h1>');
+
+    // 读取views目录下的指定文件，解析并且返回给客户端
+    // 第一个参数：表示模版的文件，相对与views目录 views/index.html
+    // 第二个参数：传递给模版使用的数据
+    res.render('main/index.html');//  可以写成res.render('main/index);
 });
 
 // 监听http请求
