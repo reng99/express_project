@@ -12,8 +12,13 @@
     <!-- 引入公共的页头 -->
     {% include './header.html' %}
 
-    <!-- 差异的部分 也是重写的部分(main) -->
-    {% block main %}{% endblock %}
+    <!-- 页面自己单独引入的css和javascript 部分 -->
+    {% block cssJs %}{% endblock %}
+
+    <!-- 主题部分 也是差异的部分 也是重写的部分(main) -->
+    <div id="main">
+        {% block main %}{% endblock %}
+    </div>
 
     <!-- 引入公共的页脚 -->
     {% include './footer.html' %}

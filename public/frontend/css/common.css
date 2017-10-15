@@ -33,6 +33,7 @@ body{
 }
 a{
     color:#333;
+    text-decoration: none;
 }
 a:hover{
     color:#09c7d1;
@@ -102,3 +103,52 @@ input::-ms-reveal{
 input:-webkit-autofill{
     -webkit-box-shadow: 0 0 0 300px white inset;
 }
+
+/* header 样式 */
+header{
+    width:100%;
+    background:#f7f7f7;
+    height: auto;
+}
+header .top{
+    width:1180px;
+    height: 36px;
+    margin:0 auto;
+    text-align: center;
+    line-height: 36px;
+}
+
+/* 主体共用部分#main */
+#main{
+    width:100%;
+    height:auto;
+}
+#main .container{
+    width:1180px;
+    height:auto;
+    margin:0 auto;
+}
+
+/* footer 样式 */
+footer{
+    width:100%;
+    background:#333335;
+    height:auto;
+}
+footer .copyRight{
+    width:1180px;
+    height:40px;
+    line-height: 40px;
+    margin:0 auto;
+    text-align:center;
+    color:#888;
+    font-size:12px;
+}
+footer .copyRight .origin{
+    color:#888;
+}
+footer .copyRight .origin:hover{
+    color:#09c7d1;
+    text-decoration: underline;
+}
+     

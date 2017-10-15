@@ -3,7 +3,32 @@
 <!-- 继承 一个页面中只能继承一次-->
 {% extends './common/layout.html' %}
 
+<!-- 重写cssJs 引入首页相关的css和javascript -->
+{% block cssJs %}
+    <link rel="stylesheet" type="text/css" href="/public/frontend/css/index/index.css">
+    <script type="text/javascript" src="/public/frontend/js/snippet/banner.js"></script> <!--引入轮播的js-->
+    <script type="text/javascript" src="/public/frontend/js/index/index.js"></script>
+{% endblock %}
+
 <!-- 重写main部分 -->
 {% block main %}
-    <h1>rewrite the main block!</h1>
+    <!-- 轮播图 -->
+    <div id="index_banner" class="banner">
+        <ul class="bd">
+            <li><a href="javascript:;"><img src="/public/frontend/imgs/index/banner1.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="/public/frontend/imgs/index/banner2.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="/public/frontend/imgs/index/banner3.jpg" alt=""></a></li>
+        </ul>
+        <ul class="hd">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="pre"></div>
+        <div class="next"></div>
+    </div>
+    <!-- 首页主体 -->
+    <div class="container">
+        <h1>this is index.html</h1>
+    </div>
 {% endblock %}

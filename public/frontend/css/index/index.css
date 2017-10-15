@@ -1,0 +1,70 @@
+/* banner的css代码 */
+#index_banner{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    position: relative;
+}
+#index_banner .bd{
+    width:400%;
+    height:auto;
+    position: relative;
+}
+#index_banner .bd li{
+    width:25%;
+    float: left;
+    height: auto;
+}
+#index_banner .bd li img{
+    width:100%;
+    height:auto;
+}
+#index_banner .hd{
+    width:60px;
+    height: 10px;
+    position: absolute;
+    bottom:10px;
+    left:50%;
+    margin-left:-30px;
+}
+#index_banner .hd li{
+    width:10px;
+    height: 10px;
+    border-radius: 5px;
+    margin-right:10px;
+    background:#f7f7f7;
+    cursor:pointer;
+    float: left;
+}
+#index_banner .hd li:last-child{
+    margin:0;
+}
+#index_banner .hd li.active{
+    width:20px;
+    background:#fff;
+}
+#index_banner .pre,#index_banner .next{
+    width:50px;
+    height: 50px;
+    border-radius: 25px;
+    position: absolute;
+    top:50%;
+    margin-top:-25px;
+    overflow: hidden;
+    left:50%;
+    cursor: pointer;
+}
+#index_banner .pre{
+    margin-left:-640px;
+    background:url("/public/frontend/imgs/banner_arrow.png") no-repeat 0 0;
+}
+#index_banner .pre:hover{
+    background:url("/public/frontend/imgs/banner_arrow.png") no-repeat 0 -60px;
+}
+#index_banner .next{
+    margin-left:590px;
+    background:url("/public/frontend/imgs/banner_arrow.png") no-repeat -60px 0;
+}
+#index_banner .next:hover{
+    background:url("/public/frontend/imgs/banner_arrow.png") no-repeat -60px -60px;
+}
