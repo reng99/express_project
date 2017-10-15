@@ -1,4 +1,104 @@
 /* 前端的公共样式 */
+
+/* 移除浏览器默认的样式 */
+body,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select{
+    margin:0;
+    padding:0;
+    font-size:14px;
+}
 body{
-    background: red;
+    min-width:1180px;
+    font-family: "Microsoft YaHei","\5B8B\4F53","Arial Narrow",Arial,"宋体", Helvetica, sans-serif;
+    background:#fff;
+    position: relative;
+}
+a{
+    color:#333;
+}
+a:hover{
+    color:#09c7d1;
+}
+em{
+    font-style:normal;
+}
+li{
+    list-style: none;
+}
+img{
+    border:0;
+    vertical-align: middle; /* 垂直居中需要 */
+}
+table{
+    border-collapse: collapse;
+    border-spacing:0;
+}
+p{
+    word-break: break-all;
+}
+input,
+button,
+textarea,
+select{
+    outline: none; /* 取消外边框的高光 */
+    border-radius:0; /* 取消mac系统浏览器上的自带圆角效果 */
+}
+/* input&textarea中placeholder的处理 */
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder{
+    /* webkit browsers */
+    color:#b3b3b3;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder{
+    /* mozilla firefox 4 to 18 */
+    color:#b3b3b3;
+    opacity:1;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder{
+    /* mozilla firefox 19+ */
+    color:#b3b3b3;
+    opacity:1;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder{
+    /* internet explorer 10+ */
+    color:#b3b3b3;
+}
+input,
+select,
+textarea{
+    color:#333;
+}
+textarea{ /* 移除默认出现滚动条 */
+    overflow: auto;
+    resize: none;
+}
+/* 移除input中ie自带的删除图标和密码的眼睛图标 */
+input::-ms-clear,
+input::-ms-reveal{
+    display: none;
+}
+/* 覆盖谷歌浏览器中input智能选中时候的背景色 参考链接https://github.com/reng99/develop_knoledge_summary/blob/master/front_end/input_select_bgIssue.md  */
+input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0 300px white inset;
 }
