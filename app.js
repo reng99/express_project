@@ -16,6 +16,10 @@ var swig = require('swig');
 var app =express();
 
 
+// 设置静态文件托管
+// 当用户访问的url是以 /public 开始，那么就直接返回对应的__dirname+'/public'下的文件夹
+app.use('/public',express.static(__dirname+'/public'));
+
 
 // 配置应用模版
 // 定义当前应用所使用的模版引擎
