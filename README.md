@@ -4,6 +4,32 @@
 
 你的star是我继续下去的动力，喜欢就点下右上角的star🌟了！ :blush:
 
+### 使用方法
+
+假设电脑上已经安装了node环境
+
+```bash
+
+    1.下载本目录
+    $ git clone https://github.com/reng99/express_project.git
+
+    2.进入本目录
+    $ cd express_project
+
+    3.安装相关以来
+    $ npm install
+
+    4.启动应用
+    $ npm run start
+
+    5.在浏览器上查看效果
+    http://localhost:9000/
+
+
+```
+
+这是目前查看本目录的方法，后期变动的话再进行更改。喜欢的话请star✨一下本仓库了。
+
 ### 使用的技术
 
 > 前端开发
