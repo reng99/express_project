@@ -12,6 +12,9 @@
     <!-- 引入公共的页头 -->
     {% include './header.html' %}
 
+    <!-- 差异的部分 也是重写的部分(main) -->
+    {% block main %}{% endblock %}
+
     <!-- 引入公共的页脚 -->
     {% include './footer.html' %}
 </body>
