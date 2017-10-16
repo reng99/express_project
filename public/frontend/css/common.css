@@ -114,8 +114,23 @@ header .top{
     width:1180px;
     height: 36px;
     margin:0 auto;
-    text-align: center;
     line-height: 36px;
+    zoom:1;
+}
+header .top .logo{
+    width:100px;
+    height: 36px;
+    float: left;
+}
+header .top .loginReg{
+    width:300px;
+    height: 36px;
+    float: right;
+}
+header .loginReg a{
+    float: right;
+    margin:0 10px 0 20px;
+    font-size:12px;
 }
 
 /* 主体共用部分#main */
