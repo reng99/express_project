@@ -12,6 +12,8 @@
 var express = require('express');
 // 加载模版处理模块
 var swig = require('swig');
+// 加载数据库处理模块
+var mongoose = require('mongoose');
 // 创建app应用 === 等价于原生的node中的http.createServer();
 var app =express();
 
@@ -49,5 +51,18 @@ app.use('/',require('./routers/main')); // 前端模块
 //     res.render('main/index.html');//  可以写成res.render('main/index);
 // });
 
+
+// 链接数据库
+mongoose.connect('mongodb://localhost:27019/express_project',function(err){
+    if(err){
+        console.log("数据库链接失败");
+    }else{
+        console.log("数据库链接成功");
+        // 数据库成功后开始监听http请求
+        app.listen(9000);
+    }
+})
+
+
 // 监听http请求
-app.listen(9000);
+// app.listen(9000);
