@@ -122,15 +122,19 @@ header .top .logo{
     height: 36px;
     float: left;
 }
-header .top .loginReg{
+header .top .loginReg,header .top .entered{
     width:300px;
     height: 36px;
     float: right;
 }
-header .loginReg a{
+header .top .loginReg li,header .top .entered li{
     float: right;
     margin:0 10px 0 20px;
     font-size:12px;
+}
+header .top .entered em{
+    color:#f00;
+    font-weight:bold;
 }
 
 /* 主体共用部分#main */
