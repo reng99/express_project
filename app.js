@@ -44,7 +44,8 @@ app.use(bodyParser.urlencoded({extended:true}));// 自动在api调用req那里�
 
 // 更具不同的功能划分模块
 app.use('/',require('./routers/main')); // 前端模块
-app.use('/api',require('./routers/api')); // api 模块
+app.use('/frontend_api',require('./routers/api/frontend')); // 针对前端的 api 模块
+// app.use('/backend_api',require('./routers/api/backend')); // 针对后端的 api 模块
 
 
 // 首页
