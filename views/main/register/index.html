@@ -4,10 +4,27 @@
 
 <!-- 重写cssJs 引入首页相关的css和javascript -->
 {% block cssJs %}
-
+    <script type="text/javascript" src="/public/frontend/js/register/index.js"></script>
 {% endblock%}
 
 <!-- 重写main部分 -->
 {% block main %}
-    <h1>this is the register part</h1>
+    <div id="register">
+        <div class="title">注册</div>
+        <hr>
+        <p>
+            <lable for="username">用户名：</lable>
+            <input type="text" id="usename" name="username" placeholder="请输入你的用户名">
+        </p>
+        <p>
+            <label for="password">密码</label>
+            <input type="password" id="password" name="password" placeholder="请输入你的密码">
+        </p>
+        <p>
+            <label for="repassword">确认</label>
+            <input type="password" name="repassword" placeholder="请重新输入密码">
+        </p>
+        <hr>
+        <button class='btn register'>注册</button>
+    </div>
 {% endblock %}

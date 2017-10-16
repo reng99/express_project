@@ -23,7 +23,7 @@
     $ npm run start
 
     5.在浏览器上查看效果
-    http://localhost:9000/
+    http://localhost:9000/index.html
 
 
 ```

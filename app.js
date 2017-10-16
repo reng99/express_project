@@ -14,6 +14,8 @@ var express = require('express');
 var swig = require('swig');
 // 加载数据库处理模块
 var mongoose = require('mongoose');
+// 加载body-parser，用来处理post提交过来的数据
+var bodyParser = require('body-parser');
 // 创建app应用 === 等价于原生的node中的http.createServer();
 var app =express();
 
@@ -36,9 +38,13 @@ swig.setDefaults({
     cache:false
 });
 
+// bodyParser的设置,通过中间件的形式设置
+app.use(bodyParser.urlencoded({extended:true}));// 自动在api调用req那里增加一个body的属性
+
 
 // 更具不同的功能划分模块
 app.use('/',require('./routers/main')); // 前端模块
+app.use('/api',require('./routers/api')); // api 模块
 
 
 // 首页
