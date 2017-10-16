@@ -35,15 +35,19 @@ swig.setDefaults({
 });
 
 
-// 首页
-app.get('/',function(req,res,next){
-    // res.send('<h1>hello world!!</h1>');
+// 更具不同的功能划分模块
+app.use('/',require('./routers/main')); // 前端模块
 
-    // 读取views目录下的指定文件，解析并且返回给客户端
-    // 第一个参数：表示模版的文件，相对与views目录 views/index.html
-    // 第二个参数：传递给模版使用的数据
-    res.render('main/index.html');//  可以写成res.render('main/index);
-});
+
+// 首页
+// app.get('/',function(req,res,next){
+//     // res.send('<h1>hello world!!</h1>');
+
+//     // 读取views目录下的指定文件，解析并且返回给客户端
+//     // 第一个参数：表示模版的文件，相对与views目录 views/index.html
+//     // 第二个参数：传递给模版使用的数据
+//     res.render('main/index.html');//  可以写成res.render('main/index);
+// });
 
 // 监听http请求
 app.listen(9000);
