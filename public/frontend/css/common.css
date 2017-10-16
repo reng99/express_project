@@ -153,6 +153,9 @@ footer{
     width:100%;
     background:#333335;
     height:auto;
+    position:fixed;
+    bottom:0;
+    left:0;
 }
 footer .copyRight{
     width:1180px;
