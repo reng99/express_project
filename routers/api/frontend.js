@@ -119,4 +119,12 @@ router.post('/user/login',function(req,res,next){
     });
 });
 
+/**
+ * 用户退出
+ */
+router.get('/user/logout',function(req,res,next){
+    req.cookies.set('userInfo',null);// 退出的时候，设置相关cookie为空
+    res.json(responseData);
+})
+
 module.exports = router;
