@@ -1,27 +1,31 @@
 <!-- 登录页面 -->
-<!-- 继承 一个页面中只能继承一次-->
-{% extends './common/layout.html' %}
-
-<!-- 重写cssJs 引入首页相关的css和javascript -->
-{% block cssJs %}
-    <script type="text/javascript" src="/public/frontend/js/login/index.js"></script>
-{% endblock%}
-
-<!-- 重写main部分 -->
-{% block main %}
-    <dl id="login" class="reg_login">
-        <dt class="title">Sign in</dt>
-        <dd>
-            <lable for="username">Username</lable><br/>
-            <input type="text" id="usename" name="username">
-        </dd>
-        <dd>
-            <label for="password">Password</label><br/>
-            <input type="password" id="password" name="password">
-        </dd>
-        <dd>
-            <button class='btn login'>Sign in</button>
-        </dd>
-        <dd><p>I don't have an account</p></dd>
-    </dl>
-{% endblock %}
+<html lang="en">
+    <head>
+        <!-- 引入公共的样式和js -->
+        {% include './common/quote.html' %}
+        <link rel="stylesheet" href="/public/frontend/css/login_reg.css" type="text/css">
+        <script type="text/javascript" src="/public/frontend/js/login/index.js"></script>
+    </head>
+    <body>
+        <div class="reg_login">
+            <a href="/index.html" class="backIndex">logo</a>
+            <dl id="login">
+                <dt class="title">Sign In</dt>
+                <dd>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username">
+                </dd>
+                <dd>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                </dd>
+                <dd>
+                    <button class='btn login'>Sign in</button>
+                </dd>
+                <dd><a href="/register/index.html" class="hint">I don't have an account</a></dd>
+            </dl>
+        </div>
+        <!-- 引入公共的页脚 -->
+        {% include './common/footer.html' %}
+    </body>
+</html>

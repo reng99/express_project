@@ -1,30 +1,35 @@
 <!-- 注册页面 -->
-<!-- 继承 一个页面中只能继承一次-->
-{% extends '../common/layout.html' %}
+<html lang="en">
+    <head>
+        <!-- 引入公共的样式和js -->
+        {% include '../common/quote.html' %}
+        <link rel="stylesheet" href="/public/frontend/css/login_reg.css" type="text/css">
+        <script type="text/javascript" src="/public/frontend/js/register/index.js"></script>
+    </head>
+    <body>
+        <div class="reg_login">
+            <a href="/index.html" class="backIndex">logo</a>
+            <dl id="register">
+                <dt class="title">Sign Up</dt>
+                <dd>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username">
+                </dd>
+                <dd>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                </dd>
+                <dd>
+                    <label for="repassword">Comfirm Password</label>
+                    <input type="password" name="repassword" id="repassword">
+                </dd>
+                <dd><button class='btn register'>Create an account</button></dd>
+                <dd><a href="/login.html" class="hint">I have an account</a></dd>
+                
+            </dl>
+        </div>
 
-<!-- 重写cssJs 引入首页相关的css和javascript -->
-{% block cssJs %}
-    <script type="text/javascript" src="/public/frontend/js/register/index.js"></script>
-{% endblock%}
-
-<!-- 重写main部分 -->
-{% block main %}
-    <dl id="register" class="reg_login">
-        <dt class="title">Sign Up</dt>
-        <dd>
-            <lable for="username">Username</lable><br/>
-            <input type="text" id="usename" name="username">
-        </dd>
-        <dd>
-            <label for="password">Password</label><br/>
-            <input type="password" id="password" name="password">
-        </dd>
-        <dd>
-            <label for="repassword">Comfirm Password</label><br/>
-            <input type="password" name="repassword">
-        </dd>
-        <dd><button class='btn register'>Create an account</button></dd>
-        <dd><p>I have an account</p></dd>
-        
-    </dl>
-{% endblock %}
+        <!-- 引入公共的页脚 -->
+        {% include '../common/footer.html' %}
+    </body>
+</html>
