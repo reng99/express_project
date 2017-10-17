@@ -15,8 +15,11 @@ $(function(){// 页面加载完成后进行调用
             dataType:'json',
             success:function(result){// 链接成功，后端返回给前端的数据
                 if(!result.code){
+                    $('#login .colWarn').html("");
                     // 登录成功,直接跳转到首页
                     window.location.href = window.location.origin+'/index.html';
+                }else{
+                    $('#login .colWarn').html(`<i class="fa fa-times-circle"></i> ` + result.message);
                 }
             }
         });

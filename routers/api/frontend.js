@@ -71,7 +71,7 @@ router.post('/user/register',function(req,res,next){
         });
         return user.save();
     }).then(function(newUserInfo){ // newUserInfo 是注册成功的用户在数据库中的信息
-        responseData.message = 'register successful';
+        responseData.message = 'register successfully';
         res.json(responseData);
     });
 });
@@ -86,7 +86,7 @@ router.post('/user/login',function(req,res,next){
 
     if(username == '' || password == ''){
         responseData.code = 1;
-        responseData.message = '用户名或者密码不能为空';
+        responseData.message = 'username or password is empty';
         res.json(responseData);
         return;
     }
@@ -97,12 +97,12 @@ router.post('/user/login',function(req,res,next){
     }).then(function(userInfo){ // 使用promise
         if(!userInfo){
             responseData.code = 2;
-            responseData.message = '用户名或者密码错误';
+            responseData.message = 'username or password is wrong';
             res.json(responseData);
             return;
         }
         // 用户名和密码是正确的
-        responseData.message = '登录成功';
+        responseData.message = 'login successfully';
         // console.log(userInfo);
         // 添加用户信息到返回的信息中
         responseData.userInfo = {

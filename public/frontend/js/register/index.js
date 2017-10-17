@@ -15,8 +15,13 @@ $(function(){// 页面加载完成后进行调用
             },
             dataType:'json',
             success:function(result){// 链接成功，后端返回给前端的数据
-                $('#register .colWarn').html(`<i class="fa fa-times-circle"></i> ` + result.message);
-                // console.log(result);
+                if(!result.code){
+                    // 注册成功
+                    $('#register .colWarn').html("");
+                    window.location.href = window.location.origin+'/register/success.html';
+                }else{
+                    $('#register .colWarn').html(`<i class="fa fa-times-circle"></i> ` + result.message);
+                }
             }
         });
     });

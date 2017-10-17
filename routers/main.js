@@ -22,4 +22,10 @@ router.get('/register/index.html',function(req,res,next){
     res.render('main/register/index.html',{});
 });
 
+// 注册成功页
+router.get('/register/success.html',function(req,res,next){
+    // 参数二为分配的模版信息
+    res.render('main/register/success.html',{});
+})
+
 module.exports = router;

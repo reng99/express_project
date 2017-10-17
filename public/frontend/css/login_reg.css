@@ -18,11 +18,19 @@ body{
 .reg_login .backIndex{
     width:60px;
     height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size:30px;
+    color:#fff;
+    font-family:'Times New Roman';
     border-radius:30px;
-    background:blue;
     display: block;
     margin:0 auto;
     box-shadow: 5px 5px 2px #e5e5e5;
+    background: -webkit-linear-gradient(rgb(255,255,255), rgb(9,199,209)); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(rgb(255,255,255), rgb(9,199,209)); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(rgb(255,255,255), rgb(9,199,209)); /* Firefox 3.6 - 15 */
+    background: linear-gradient(rgb(255,255,255), rgb(9,199,209)); /* 标准的语法（必须放在最后） */
 }
 #login,#register{
     width:360px;
