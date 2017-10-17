@@ -36,11 +36,12 @@
 
 1.es5/es6,html/html5,css/css3
 
-2.框架选择vue
 
-3.包管理工具  npm
+2.包管理工具  npm
 
-4.使用的库由jquery
+3.使用的库由jquery
+
+4.[font-awesome](http://fontawesome.dashgame.com/)
 
 > 后端开发
 
