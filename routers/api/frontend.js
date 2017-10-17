@@ -35,21 +35,21 @@ router.post('/user/register',function(req,res,next){
     // 用户名不能为空
     if(username == ''){
         responseData.code = 1;
-        responseData.message = '用户名不能为空';
+        responseData.message = 'username is empty';
         res.json(responseData);
         return;
     }
     // 密码不能为空
     if(password == ''){
         responseData.code = 2;
-        responseData.message = '密码不能为空';
+        responseData.message = 'password is empty';
         res.json(responseData);
         return;
     }
     // 两次输入的密码要一致
     if(password != repassword){
         responseData.code = 3;
-        responseData.message = '两次输入的密码不一致';
+        responseData.message = "repassword isn't equal password";
         res.json(responseData);
         return;
     }
@@ -60,7 +60,7 @@ router.post('/user/register',function(req,res,next){
     }).then(function(userInfo){
         if(userInfo){
             responseData.code = 4;
-            responseData.message = '用户名已经被注册了';
+            responseData.message = 'username was registered';
             res.json(responseData);
             return;
         }
@@ -71,7 +71,7 @@ router.post('/user/register',function(req,res,next){
         });
         return user.save();
     }).then(function(newUserInfo){ // newUserInfo 是注册成功的用户在数据库中的信息
-        responseData.message = '注册成功';
+        responseData.message = 'register successful';
         res.json(responseData);
     });
 });
