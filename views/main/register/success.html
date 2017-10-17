@@ -1,16 +1,34 @@
 <!-- 注册成功页面 -->
+<html lang="en">
+    <head>
+        <!-- 引入公共的样式和js -->
+        {% include '../common/quote.html' %}
+        <link rel="stylesheet" href="/public/frontend/css/login_reg.css" type="text/css">
+        <script type="text/javascript" src="/public/frontend/js/register/index.js"></script>
+    </head>
+    <body>
+        <div class="reg_login" id="reg_success">
+            <a href="/index.html" class="backIndex">R</a>
+            <h1 class="title">Register Successfully</h1>
+            <p class="hint" style="margin-bottom:20px;">after <em class="time" style="color:#f00;"></em> automatically jump to &nbsp;<a href="/index.html" style="color:#09c7d1;">index page</a>.</p>
+        </div>
 
-<!-- 继承 一个页面中只能继承一次-->
-{% extends '../common/layout.html' %}
-
-<!-- 重写cssJs 引入首页相关的css和javascript -->
-{% block cssJs %}
-{% endblock %}
-
-<!-- 重写main部分 -->
-{% block main %}
-    <!-- 首页主体 -->
-    <div class="container">
-        <h1>register successful</h1>
-    </div>
-{% endblock %}
+        <!-- 引入公共的页脚 -->
+        {% include '../common/footer.html' %}
+        <script type="text/javascript">
+            $(function(){
+                var $time = 5;
+                $("#reg_success .time").text($time);
+                var timer = setInterval(function(){
+                    if(parseInt($("#reg_success .time").text())!=0){
+                        $("#reg_success .time").text($time--);
+                    }else{
+                        clearInterval(timer);
+                        window.location.href = window.location.origin+'/index.html';
+                    }
+                },1000);
+                
+            });
+        </script>
+    </body>
+</html>
