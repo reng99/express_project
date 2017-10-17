@@ -47,12 +47,19 @@ body{
     width:360px;
     cursor: pointer;
 }
+.reg_login label .warn{
+    color:#f00;
+    font-size:12px;
+}
 .reg_login input{
     width:360px;
     height: 42px;
     border:1px solid #e5e5e5;
     margin-bottom:10px;
     text-indent: 10px;
+}
+.reg_login .colWarn{
+    color:#f00;
 }
 .reg_login .btn{
     width:360px;
