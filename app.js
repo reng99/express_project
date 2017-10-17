@@ -16,6 +16,8 @@ var swig = require('swig');
 var mongoose = require('mongoose');
 // 加载body-parser，用来处理post提交过来的数据
 var bodyParser = require('body-parser');
+// 增加cookies模块，客户端记录用户登录状态等信息
+var Cookies = require('cookies');
 // 创建app应用 === 等价于原生的node中的http.createServer();
 var app =express();
 
