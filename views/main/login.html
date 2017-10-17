@@ -9,18 +9,19 @@
 
 <!-- 重写main部分 -->
 {% block main %}
-    <div id="login">
-        <div class="title">登录</div>
-        <hr>
-        <p>
-            <lable for="username">用户名：</lable>
-            <input type="text" id="usename" name="username" placeholder="请输入你的用户名">
-        </p>
-        <p>
-            <label for="password">密码</label>
-            <input type="password" id="password" name="password" placeholder="请输入你的密码">
-        </p>
-        <hr>
-        <button class='btn login'>登录</button>
-    </div>
+    <dl id="login" class="reg_login">
+        <dt class="title">Sign in</dt>
+        <dd>
+            <lable for="username">Username</lable><br/>
+            <input type="text" id="usename" name="username">
+        </dd>
+        <dd>
+            <label for="password">Password</label><br/>
+            <input type="password" id="password" name="password">
+        </dd>
+        <dd>
+            <button class='btn login'>Sign in</button>
+        </dd>
+        <dd><p>I don't have an account</p></dd>
+    </dl>
 {% endblock %}
