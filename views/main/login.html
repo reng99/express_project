@@ -4,10 +4,23 @@
 
 <!-- 重写cssJs 引入首页相关的css和javascript -->
 {% block cssJs %}
-
+    <script type="text/javascript" src="/public/frontend/js/login/index.js"></script>
 {% endblock%}
 
 <!-- 重写main部分 -->
 {% block main %}
-    <h1>this is the login part</h1>
+    <div id="login">
+        <div class="title">登录</div>
+        <hr>
+        <p>
+            <lable for="username">用户名：</lable>
+            <input type="text" id="usename" name="username" placeholder="请输入你的用户名">
+        </p>
+        <p>
+            <label for="password">密码</label>
+            <input type="password" id="password" name="password" placeholder="请输入你的密码">
+        </p>
+        <hr>
+        <button class='btn login'>登录</button>
+    </div>
 {% endblock %}
