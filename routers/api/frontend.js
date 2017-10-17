@@ -103,6 +103,17 @@ router.post('/user/login',function(req,res,next){
         }
         // 用户名和密码是正确的
         responseData.message = '登录成功';
+        // console.log(userInfo);
+        // 添加用户信息到返回的信息中
+        responseData.userInfo = {
+            _id: userInfo._id,
+            username: userInfo.username
+        };
+        // 客户端初次访问服务端的时候，初始化cookies返回给客户端
+        req.cookies.set('userInfo',JSON.stringify({
+            _id: userInfo._id,
+            username: userInfo.username
+        }));
         res.json(responseData);
         return;
     });

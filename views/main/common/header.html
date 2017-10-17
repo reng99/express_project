@@ -2,13 +2,16 @@
 <header>
     <div class="top">
         <div class="logo"><a href="/index.html" class="indexPage">logo</a></div>
-        <ul class="loginReg"><!-- 未登录状态-->
-            <li><a href="/register/index.html" class="register">Sign Up</a></li>
-            <li><a href="/login.html" class="login">Sign In</a></li>
-        </ul>
-        <ul class="entered" style="display:none;"><!--已登录状态-->
-            <li><a href="javascript:;" class="logout">Sign out</a></li>
-            <li>Hello，<em>reng</em>!&nbsp;Welcome to my website!</li>
-        </ul>
+        {% if userInfo._id %}
+            <ul class="entered"><!--已登录状态-->
+                <li><a href="javascript:;" class="logout">Sign out</a></li>
+                <li>Hello，<em>{{userInfo.username}}</em>&nbsp;!&nbsp;Welcome to my website!</li>
+            </ul>
+        {% else %}
+            <ul class="loginReg"><!-- 未登录状态-->
+                <li><a href="/register/index.html" class="register">Sign Up</a></li>
+                <li><a href="/login.html" class="login">Sign In</a></li>
+            </ul>
+        {% endif %}
     </div>
 </header>

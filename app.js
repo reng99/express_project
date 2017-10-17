@@ -43,6 +43,24 @@ swig.setDefaults({
 // bodyParser的设置,通过中间件的形式设置
 app.use(bodyParser.urlencoded({extended:true}));// 自动在api调用req那里增加一个body的属性
 
+// 通过中间件的形式设置cookies
+app.use(function(req,res,next){
+    // 将cookies加载进入req对象中,客户端访问服务端的时候一起发送过去
+    req.cookies = new Cookies(req,res);
+
+    // 解析登录的cookies
+    req.userInfo = {};// 为 req 添加一个userInfo 的字段，为传到模版中做准备
+    if(req.cookies.get("userInfo")){
+        try{
+            req.userInfo = JSON.parse(req.cookies.get('userInfo'));
+        }catch(e){
+            console.log(e);
+            next();
+        }
+    }
+
+    next();// 不可以漏
+});
 
 // 更具不同的功能划分模块
 app.use('/',require('./routers/main')); // 前端模块
