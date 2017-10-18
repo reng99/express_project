@@ -174,4 +174,18 @@ footer .copyRight .origin:hover{
     color:#09c7d1;
     text-decoration: underline;
 }
+
+/* 固定工具栏 */
+#fixedTool{
+    width:30px;
+    height: auto;
+    z-index: 1000;
+    position: fixed;
+    top:100px;
+    right:0;
+}
+#fixedTool li{
+    height: 30px;
+    background:red;
+}
      
