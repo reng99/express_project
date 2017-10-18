@@ -21,6 +21,9 @@ var Cookies = require('cookies');
 // 创建app应用 === 等价于原生的node中的http.createServer();
 var app =express();
 
+// 引入User model
+var User = require('./models/User');
+
 
 // 设置静态文件托管
 // 当用户访问的url是以 /public 开始，那么就直接返回对应的__dirname+'/public'下的文件夹
@@ -53,12 +56,18 @@ app.use(function(req,res,next){
     if(req.cookies.get("userInfo")){
         try{
             req.userInfo = JSON.parse(req.cookies.get('userInfo'));
+
+            // 获取当前用户的类型,是否是管理员
+            User.findById(req.userInfo._id).then(function(userInfo){
+                // console.log(userInfo);
+                // 为req.userInfo添加判断管理员的标志
+                req.userInfo.isAdmin = Boolean(userInfo.isAdmin);
+            });
         }catch(e){
             console.log(e);
             next();
         }
     }
-
     next();// 不可以漏
 });
 
