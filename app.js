@@ -58,11 +58,11 @@ app.use(function(req,res,next){
             req.userInfo = JSON.parse(req.cookies.get('userInfo'));
 
             // 获取当前用户的类型,是否是管理员
-            User.findById(req.userInfo._id).then(function(userInfo){
-                // console.log(userInfo);
-                // 为req.userInfo添加判断管理员的标志
-                req.userInfo.isAdmin = Boolean(userInfo.isAdmin);
-            });
+            // User.findById(req.userInfo._id).then(function(userInfo){
+            //     // console.log(userInfo);
+            //     // 为req.userInfo添加判断管理员的标志
+            //     req.userInfo.isAdmin = Boolean(userInfo.isAdmin);
+            // });
         }catch(e){
             console.log(e);
             next();
@@ -73,6 +73,7 @@ app.use(function(req,res,next){
 
 // 更具不同的功能划分模块
 app.use('/',require('./routers/main')); // 前端模块
+app.use('/admin',require('./routers/admin')); //后端模块
 app.use('/frontend_api',require('./routers/api/frontend')); // 针对前端的 api 模块
 // app.use('/backend_api',require('./routers/api/backend')); // 针对后端的 api 模块
 
