@@ -136,6 +136,34 @@ header .top .entered em{
     color:#f00;
     font-weight:bold;
 }
+header .nav{
+    width:1180px;
+    margin:0 auto;
+    line-height: 36px;
+    margin-bottom:10px;
+    zoom:1;
+}
+header .nav:after{
+    width:0;
+    height: 0;
+    content:'.';
+    display: block;
+    clear:both;
+    visibility: hidden;
+}
+header .nav li{
+    margin-right:30px;
+    margin-left:20px;
+    float: left;
+}
+header .nav li:hover a,header .nav .active a{
+    color:#09c7d1;
+    border-bottom:2px solid #09c7d1;
+}
+header .nav li a{
+    display: block;
+    padding:3px 6px;
+}
 
 /* 主体共用部分#main */
 #main{
@@ -183,19 +211,32 @@ footer .copyRight .origin:hover{
     height: auto;
     z-index: 1000;
     position: fixed;
-    top:300px;
+    top:360px;
     left:-70px;
 }
 #fixedTool li{
     height: 60px;
-    border-bottom:1px solid #e5e5e5;
+    border-top:1px solid #e5e5e5;
 }
-#fixedTool li:last-child{
-    border-bottom:none;
+#fixedTool li:first-child{
+    border-top:none;
 }
 #fixedTool li a{
     display: block;
     height: 100%;
+}
+#fixedTool li a i{
+    width:40px;
+    height: 40px;
+    display: block;
+    font-size:40px;
+    line-height: 40px;
+    padding:10px;
     text-align: center;
-    font-size:36px;
+}
+#fixedTool li .weixin i{
+    font-size:32px;
+}
+#fixedTool li:last-child{
+    display: none;
 }

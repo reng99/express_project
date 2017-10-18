@@ -45,4 +45,32 @@ $(function(){//加载完页面后调用
         });
     })();
 
+    /**
+     * 返回顶部
+     */
+    (function(){
+        var _top = $(window).scrollTop() || 0;
+        var _backTop = $("#fixedTool").find(".backTop").parent();
+        if(_top > 0){
+            _backTop.css({"display":"block"});
+        }else{
+            _backTop.css({"display":"none"});
+        }
+        // 滚动条事件
+        $(window).on("scroll",function(){
+            _top = $(this).scrollTop();
+            if(_top > 0){
+                _backTop.css({"display":"block"});
+            }else{
+                _backTop.css({"display":"none"});
+            }
+        });
+        // 点击返回顶部
+        _backTop.on("click",function(){
+            $("html,body").animate({
+                "scrollTop":0
+            },500);
+        });
+    })();
+
 });
