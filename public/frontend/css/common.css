@@ -177,15 +177,25 @@ footer .copyRight .origin:hover{
 
 /* 固定工具栏 */
 #fixedTool{
-    width:30px;
+    width:60px;
+    border:1px solid #e5e5e5;
+    background:#fff;
     height: auto;
     z-index: 1000;
     position: fixed;
-    top:100px;
-    right:0;
+    top:300px;
+    left:-70px;
 }
 #fixedTool li{
-    height: 30px;
-    background:red;
+    height: 60px;
+    border-bottom:1px solid #e5e5e5;
 }
-     
+#fixedTool li:last-child{
+    border-bottom:none;
+}
+#fixedTool li a{
+    display: block;
+    height: 100%;
+    text-align: center;
+    font-size:36px;
+}
