@@ -1,10 +1,11 @@
-import gulp from 'gulp'; //引入gulp
+import gulp from 'gulp'; //引入gulp http://www.gulpjs.com.cn/
 import plumber from 'gulp-plumber';// https://www.npmjs.com/package/gulp-plumber/
 import babel from 'gulp-babel'; // https://www.npmjs.com/package/gulp-babel/
 import uglify from 'gulp-uglify'; // https://www.npmjs.com/package/gulp-uglify/
 import rename from 'gulp-rename'; // https://www.npmjs.com/package/gulp-rename/ rename files
 import cleanCSS from 'gulp-clean-css'; // https://www.npmjs.com/package/gulp-clean-css
 import gulpif from 'gulp-if'; // https://www.npmjs.com/package/gulp-if
+// import imagemin from 'gulp-imagemin'; 开发环境不需要做，避免页面加载慢 // https://www.npmjs.com/package/gulp-imagemin
 
 // 判断条件,需要提前定义
 const condition = function(f){
@@ -25,6 +26,13 @@ gulp.task('default',()=>{
     gulp.start(['mincss','minjs']);
 });
 
+// 压缩images -- 开发环境隐藏
+// gulp.task('minimg',()=>{
+//     return gulp.src(`${ PATHS.src }imgs/**/*`)
+//         .pipe(imagemin())
+//         .pipe(gulp.dest(`${ PATHS.dest }imgs/`));
+// });
+
 // 压缩css 
 gulp.task('mincss',()=>{
     return gulp.src(`${ PATHS.src }**/*.css`)
@@ -32,7 +40,7 @@ gulp.task('mincss',()=>{
         .pipe(gulpif(condition,cleanCSS())) // 没有压缩过的css文件进行压缩
         .pipe(gulpif(condition,rename({extname:'.min.css'}))) // 后缀名为非.min.css的进行重命名
         .pipe(gulp.dest(`${ PATHS.dest }`));
-})
+});
 
 // 压缩 js
  gulp.task('minjs',()=>{
