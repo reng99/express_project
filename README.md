@@ -36,12 +36,13 @@
 
 1.es5/es6,html/html5,css/css3
 
+2.构建工具gulp
 
-2.包管理工具  npm
+3.包管理工具  npm
 
-3.使用的库由jquery
+4.使用的库由jquery
 
-4.[font-awesome](http://fontawesome.dashgame.com/)
+5.[font-awesome](http://fontawesome.dashgame.com/)
 
 > 后端开发
 
@@ -65,5 +66,5 @@
 (待补充)
 
 要点：
-1.用户分为管理员和普通用户，管理人员在数据库中添加，不需要在页面中注册。
+1.用户分为管理员和普通用户，管理人员在数据库中添加，普通用户需要在页面中注册。
 
