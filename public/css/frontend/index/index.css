@@ -56,17 +56,17 @@
 }
 #index_banner .pre{
     margin-left:-640px;
-    background:url("/public/frontend/imgs/banner_arrow.png") no-repeat 0 0;
+    background:url("/public/imgs/frontend/banner_arrow.png") no-repeat 0 0;
 }
 #index_banner .pre:hover{
-    background:url("/public/frontend/imgs/banner_arrow.png") no-repeat 0 -60px;
+    background:url("/public/imgs/frontend/banner_arrow.png") no-repeat 0 -60px;
 }
 #index_banner .next{
     margin-left:590px;
-    background:url("/public/frontend/imgs/banner_arrow.png") no-repeat -60px 0;
+    background:url("/public/imgs/frontend/banner_arrow.png") no-repeat -60px 0;
 }
 #index_banner .next:hover{
-    background:url("/public/frontend/imgs/banner_arrow.png") no-repeat -60px -60px;
+    background:url("/public/imgs/frontend/banner_arrow.png") no-repeat -60px -60px;
 }
 #index.container{
     margin-top:20px;
