@@ -112,7 +112,7 @@
     ├── .babelrc //babel的相关配置 
     ├── app.js //应用程序入口
     ├── gulpfile.babel.js //gulp相关配置
-    ├── package.json //nodejs相关配置README.md
+    ├── package.json //nodejs相关配置
     └── README.md //说明文件 项目的说明
 
 ```
