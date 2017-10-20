@@ -8,6 +8,7 @@ import gulpif from 'gulp-if'; // https://www.npmjs.com/package/gulp-if
 // import imagemin from 'gulp-imagemin'; 开发环境不需要做，避免页面加载慢 // https://www.npmjs.com/package/gulp-imagemin
 import less from 'gulp-less'; // https://www.npmjs.com/package/gulp-less
 import htmlmin from 'gulp-htmlmin'; // http://www.ydcss.com/archives/20 https://github.com/jonschlinkert/gulp-htmlmin
+import replace from 'gulp-replace'; // https://www.npmjs.com/package/gulp-replace
 
 // 判断条件,需要提前定义
 const minCondition = function(f){
