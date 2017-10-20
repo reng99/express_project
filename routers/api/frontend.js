@@ -72,6 +72,7 @@ router.post('/user/register',function(req,res,next){
         return user.save();
     }).then(function(newUserInfo){ // newUserInfo 是注册成功的用户在数据库中的信息
         responseData.message = 'register successfully';
+        req.cookies.set('userInfo',null);// 注册成功时，清空相关的cookies
         res.json(responseData);
     });
 });
