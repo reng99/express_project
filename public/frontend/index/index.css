@@ -1,0 +1,149 @@
+/* banner的css代码 */
+#index_banner {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+#index_banner .bd {
+  width: 400%;
+  height: auto;
+  position: relative;
+}
+#index_banner .bd li {
+  width: 25%;
+  float: left;
+  height: auto;
+}
+#index_banner .bd li img {
+  width: 100%;
+  height: auto;
+}
+#index_banner .hd {
+  width: 60px;
+  height: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -30px;
+}
+#index_banner .hd li {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  background: #ccc;
+  cursor: pointer;
+  float: left;
+}
+#index_banner .hd li:last-child {
+  margin: 0;
+}
+#index_banner .hd li.active {
+  width: 20px;
+  background: #fff;
+}
+#index_banner .pre,
+#index_banner .next {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  overflow: hidden;
+  left: 50%;
+  cursor: pointer;
+}
+#index_banner .pre {
+  margin-left: -640px;
+  background: url("/public/imgs/frontend/banner_arrow.png") no-repeat 0 0;
+}
+#index_banner .pre:hover {
+  background: url("/public/imgs/frontend/banner_arrow.png") no-repeat 0 -60px;
+}
+#index_banner .next {
+  margin-left: 590px;
+  background: url("/public/imgs/frontend/banner_arrow.png") no-repeat -60px 0;
+}
+#index_banner .next:hover {
+  background: url("/public/imgs/frontend/banner_arrow.png") no-repeat -60px -60px;
+}
+#index.container {
+  margin-top: 20px;
+  zoom: 1;
+}
+#index:after {
+  width: 0;
+  height: 0;
+  content: '.';
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+#index .article_lists {
+  width: 800px;
+  float: left;
+}
+#index .article {
+  background: #fff;
+  margin-bottom: 20px;
+}
+#index .article_header {
+  height: 60px;
+  position: relative;
+}
+#index .article_header .title {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  bottom: 0;
+  font-size: 16px;
+  text-align: center;
+}
+#index .article_header .side {
+  display: block;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+#index .article_header .time {
+  float: left;
+  border-bottom: 1px solid #e5e5e5;
+  color: #e5e5e5;
+}
+#index .article_header .catalogue {
+  float: right;
+  background: #09c7d1;
+  color: #fff;
+}
+#index .brief_article {
+  width: 760px;
+  margin: 0 auto;
+}
+#index .article_footer {
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+#index .article_footer .detail_btn {
+  width: 100px;
+  height: 26px;
+  border: 1px solid #09c7d1;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 26px;
+  font-size: 12px;
+  color: #09c7d1;
+}
+#index .article_footer .detail_btn:hover {
+  background: #09c7d1;
+  color: #fff;
+}
+#index .sidebar {
+  float: right;
+  width: 360px;
+  height: auto;
+  padding-bottom: 40px;
+  background: #09c7d1;
+}

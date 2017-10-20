@@ -28,12 +28,12 @@ const lessCondition = function(f){
 // 相关的路径
 const PATHS ={
     src:'public/',
-    dest:'dist/'
+    dest:'public/'
 };
 
-// 程序启动
+// 默认程序启动
 gulp.task('default',()=>{
-    gulp.start(['mincss','minjs']);
+    gulp.start(['tocss','mincss','minjs']);
 });
 
 // 压缩html -- 开发环境隐藏
@@ -49,6 +49,7 @@ gulp.task('default',()=>{
 //         minifyCSS: true//压缩页面css
 //     };
 //     return gulp.src('views/**/*.html')
+//         .pipe(plumber()) // 防止流遇到错误时候中断（跳过错误）
 //         .pipe(htmlmin(options))
 //         .pipe(gulp.dest(`${ PATHS.dest }views/`));
 // });
@@ -56,30 +57,52 @@ gulp.task('default',()=>{
 // 压缩images -- 开发环境隐藏
 // gulp.task('minimg',()=>{
 //     return gulp.src(`${ PATHS.src }imgs/**/*`)
+//         .pipe(plumber()) // 防止流遇到错误时候中断（跳过错误）
 //         .pipe(imagemin())
 //         .pipe(gulp.dest(`${ PATHS.dest }imgs/`));
 // });
 
-// 压缩css 
-gulp.task('mincss',()=>{
-    return gulp.src([`${ PATHS.src }**/*.css`,`${ PATHS.src }**/*.less`])
+// less 文件转换成css文件 并压缩
+gulp.task('tocss',()=>{
+    return gulp.src(`${ PATHS.src }/less/**/*.less`)
         .pipe(plumber()) // 防止流遇到错误时候中断（跳过错误）
         .pipe(gulpif(lessCondition,less())) // less转换成css
+        .pipe(gulp.dest(`${ PATHS.dest }css/`)) // 输出转换的css未压缩
+        .pipe(cleanCSS()) // 压缩css
+        .pipe(rename({extname:'.min.css'})) // 重命名
+        .pipe(gulp.dest(`${ PATHS.dest }css/`));
+});
+
+// 压缩css 
+gulp.task('mincss',()=>{
+    return gulp.src([`${ PATHS.src }css/**/*.css`])
+        .pipe(plumber()) // 防止流遇到错误时候中断（跳过错误）
         .pipe(gulpif(minCondition,cleanCSS())) // 没有压缩过的css文件进行压缩
         .pipe(gulpif(minCondition,rename({extname:'.min.css'}))) // 后缀名为非.min.css的进行重命名
-        .pipe(gulp.dest(`${ PATHS.dest }`));
+        .pipe(gulp.dest(`${ PATHS.dest }css/`));
 });
 
 // 压缩 js
  gulp.task('minjs',()=>{
-    return gulp.src(`${ PATHS.src }**/*.js`)
+    return gulp.src(`${ PATHS.src }js/**/*.js`)
         .pipe(plumber()) // 防止流遇到错误时候中断（跳过错误）
         .pipe(babel()) // 转换es6语法
         .pipe(gulpif(minCondition,uglify())) // 没有压缩过的js进行压缩,在压缩前要进行'babel()'将es6语法转换成es5，因为gulp-uglify不识别es6语法
         .pipe(gulpif(minCondition,rename({extname:'.min.js'}))) //  后缀名为非.min.js的进行重命名
-        .pipe(gulp.dest(`${ PATHS.dest }`));
+        .pipe(gulp.dest(`${ PATHS.dest }js/`));
  });
 
 
 // reference 
 // http://www.cnblogs.com/QRL909109/p/5620824.html
+
+
+// 替换html文件中.css和.js的引用为压缩版本 gulp rn
+gulp.task("rn",()=>{
+    return gulp.src('views/**/*.html')
+        .pipe(plumber()) // 防止流遇到错误时候中断（跳过错误）
+        .pipe(replace('.min',''))
+        .pipe(replace('.css','.min.css'))
+        .pipe(replace('.js','.min.js'))
+        .pipe(gulp.dest('views/'));
+});
