@@ -67,7 +67,6 @@ gulp.task('tocss',()=>{
     return gulp.src(`${ PATHS.src }/less/**/*.less`)
         .pipe(plumber()) // 防止流遇到错误时候中断（跳过错误）
         .pipe(gulpif(lessCondition,less())) // less转换成css
-        .pipe(gulp.dest(`${ PATHS.dest }css/`)) // 输出转换的css未压缩
         .pipe(cleanCSS()) // 压缩css
         .pipe(rename({extname:'.min.css'})) // 重命名
         .pipe(gulp.dest(`${ PATHS.dest }css/`));
