@@ -7,6 +7,7 @@ import cleanCSS from 'gulp-clean-css'; // https://www.npmjs.com/package/gulp-cle
 import gulpif from 'gulp-if'; // https://www.npmjs.com/package/gulp-if
 // import imagemin from 'gulp-imagemin'; 开发环境不需要做，避免页面加载慢 // https://www.npmjs.com/package/gulp-imagemin
 import less from 'gulp-less'; // https://www.npmjs.com/package/gulp-less
+import htmlmin from 'gulp-htmlmin'; // http://www.ydcss.com/archives/20 https://github.com/jonschlinkert/gulp-htmlmin
 
 // 判断条件,需要提前定义
 const minCondition = function(f){
@@ -34,6 +35,22 @@ gulp.task('default',()=>{
     gulp.start(['mincss','minjs']);
 });
 
+// 压缩html -- 开发环境隐藏
+// gulp.task('minhtml',()=>{
+//     let options = {
+//         collapseWhitespace: true,//压缩html
+//         removeComments: true,//清除htmlL注释
+//         collapseBooleanAttributes: true,//省略布尔属性的值 <input checked="true"/> ==> <input />
+//         removeEmptyAttributes: true,//删除所有空格作属性值 <input id="" /> ==> <input />
+//         removeScriptTypeAttributes: true,//删除<script>的type="text/javascript"
+//         removeStyleLinkTypeAttributes: true,//删除<style>和<link>的type="text/css"
+//         minifyJS: true,//压缩页面js
+//         minifyCSS: true//压缩页面css
+//     };
+//     return gulp.src('views/**/*.html')
+//         .pipe(htmlmin(options))
+//         .pipe(gulp.dest(`${ PATHS.dest }views/`));
+// });
 
 // 压缩images -- 开发环境隐藏
 // gulp.task('minimg',()=>{
@@ -61,6 +78,7 @@ gulp.task('mincss',()=>{
         .pipe(gulpif(minCondition,rename({extname:'.min.js'}))) //  后缀名为非.min.js的进行重命名
         .pipe(gulp.dest(`${ PATHS.dest }`));
  });
+
 
 // reference 
 // http://www.cnblogs.com/QRL909109/p/5620824.html
