@@ -117,3 +117,9 @@
 
 ```
 
+### 参考
+
+[gulp中文网](http://www.gulpjs.com.cn/)
+
+[BrowserSync](http://www.browsersync.cn/) 省时的浏览器同步测试工具
+
