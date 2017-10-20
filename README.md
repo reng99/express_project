@@ -40,7 +40,7 @@
 
 3.包管理工具  npm
 
-4.使用的库由jquery
+4.jquery库
 
 5.[font-awesome](http://fontawesome.dashgame.com/)
 
@@ -54,7 +54,8 @@
 
 3. 使用的库，jquery bootstrap
 
-4.使用后台框架 express
+4. 使用后台框架 express
+
 
 > 数据库
 
@@ -70,14 +71,49 @@
 要点：
 1.用户分为管理员和普通用户，管理人员在数据库中添加，普通用户需要在页面中注册。
 
-> public目录下文件的解析
+### 项目布局
 
 ```javascript
 
-.
-├── build 
-      ├── css // 存放 公共的样式
-           ├── frontend // 存放前端的公共样式，允许但不建议内嵌文件夹（防止和dist内文件冲突）
-           ├── backend // 存放后端的公共样式，允许但不建议内嵌文件夹（防止和dist内文件冲突）
+    .
+    ├── .vscode // vscode ide的相关的设置
+    ├── db // 数据库 这里我使用了moogodb
+    ├── doc // 相关文档
+        └── api.md // api说明
+    ├── models // 模型 用于操作表
+    ├── node_modules // 项目的依赖 执行npm install 后产生
+    ├── public // 静态资源（注意⚠️css和js文件夹内的压缩后的资源不可进行编写操作哦，由gulp统一产生）
+        ├── css // 我这里限定存放公共的样式
+            ├── backend // 存放后端的公共样式，允许但不建议内嵌文件夹（防止和压缩后的文件产生冲突）
+            └── frontend // 存放前端的公共样式，允许但不建议内嵌文件夹（防止和压缩后的文件产生冲突）
+        ├── imgs // 图片资源
+            ├── backend // 后端使用到的图片
+            └── frontend // 前端使用到的图片
+        ├── js // javascripts 资源
+            ├── backend // 后端使用到的js
+            └── frontend // 前端使用到的js     
+        ├── less // less预处理器编写css
+            ├── backend // 后端使用到的less
+            └── frontend // 前端使用到的less  
+        └── lib // 第三方提供的资源 
+            ├── css // 提供的css
+            ├── js // 提供的js
+            └── fonts // 提供的字体     
+    ├── routers // 路由，我的理解是mvc中的c
+        ├── api // api路由
+            ├── backend.js // 后台的api
+            └── frontend.js // 前台的api
+        ├── admin.js // 后台路由
+        └── main.js // 前台路由
+    ├── schemas //相关的表结构 
+    ├── views //相关的视图 
+        ├── admin // 后台视图
+        └── main // 前台视图
+    ├── .babelrc //babel的相关配置 
+    ├── app.js //应用程序入口
+    ├── gulpfile.babel.js //gulp相关配置
+    ├── package.json //nodejs相关配置README.md
+    └── README.md //说明文件 项目的说明
+
 ```
 
