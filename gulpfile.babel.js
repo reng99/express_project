@@ -12,9 +12,7 @@ import replace from 'gulp-replace'; // https://www.npmjs.com/package/gulp-replac
 import nodemon from 'gulp-nodemon'; // https://www.npmjs.com/package/gulp-nodemon
 import browserSync from 'browser-sync';// http://www.browsersync.cn/
 
-var config = require('./config');
-// 创建服务
-var bs = browserSync.create();
+// var config = require('./config');
 
 // 判断条件,需要提前定义
 const minCondition = function(f){
@@ -37,15 +35,23 @@ const PATHS ={
     dest:'dist/'
 };
 
-// 默认程序启动
-gulp.task('default',()=>{
-    gulp.start(['tocss','mincss','minjs']);
+
+/**
+ * 开发环境
+ * 执行 npm run dev 
+ */
+gulp.task('dev',['tocss'],()=>{
+    console.log('开发环境');
 });
 
-
-// gulp(,[],()=>{
-//     console.log('开发环境');
-// });
+// less 文件转换成css文件
+gulp.task('tocss',()=>{
+    return gulp.src(`${ PATHS.src }/less/**/*.less`)
+        .pipe(plumber()) // 防止流遇到错误时候中断（跳过错误）
+        .pipe(gulpif(lessCondition,less())) // less转换成css
+        .pipe(cleanCSS()) // 压缩css
+        .pipe(gulp.dest(`${ PATHS.src }/css/`));
+});
 
 
 
@@ -66,20 +72,11 @@ gulp.task('minimg',()=>{
 });
 
 // 压缩css 
-gulp.task('mincss',['tocss'],()=>{
+gulp.task('mincss',()=>{
     return gulp.src([`${ PATHS.src }css/**/*.css`])
         .pipe(plumber()) // 防止流遇到错误时候中断（跳过错误）
         .pipe(gulpif(minCondition,cleanCSS())) // 压缩过的css文件
         .pipe(gulpif(minCondition,rename({extname:'.min.css'}))) // 后缀名为非.min.css的进行重命名
-        .pipe(gulp.dest(`${ PATHS.dest }css/`));
-});
-
-// less 文件转换成css文件
-gulp.task('tocss',()=>{
-    return gulp.src(`${ PATHS.src }/less/**/*.less`)
-        .pipe(plumber()) // 防止流遇到错误时候中断（跳过错误）
-        .pipe(gulpif(lessCondition,less())) // less转换成css
-        .pipe(cleanCSS()) // 压缩css
         .pipe(gulp.dest(`${ PATHS.dest }css/`));
 });
 

@@ -1,7 +1,6 @@
 // 前台的公共javascript代码
 
 $(function(){//加载完页面后调用
-    alert('reng');
     // 退出登录
     (function(){
         $("#logout").on("click",function(){
