@@ -11,8 +11,11 @@ import htmlmin from 'gulp-htmlmin'; // http://www.ydcss.com/archives/20 https://
 import replace from 'gulp-replace'; // https://www.npmjs.com/package/gulp-replace
 import nodemon from 'gulp-nodemon'; // https://www.npmjs.com/package/gulp-nodemon
 import browserSync from 'browser-sync';// http://www.browsersync.cn/
+import watch from 'gulp-watch';
 
-// var config = require('./config');
+var config = require('./config');
+// 创建服务
+var bs = browserSync.create();
 
 // 判断条件,需要提前定义
 const minCondition = function(f){
@@ -36,12 +39,28 @@ const PATHS ={
 };
 
 
+
 /**
  * 开发环境
  * 执行 npm run dev 
  */
-gulp.task('dev',['tocss'],()=>{
+gulp.task('dev',['nodemon'],()=>{
+    bs.init({ 
+        proxy: 'http://localhost:'+config.port+'/index.html', //服务代理
+        files: ["public/**/*.*", "views/**", "routes/**"],
+        notify:false, // 移除自带的消息栏
+        port: 9000 // 实际上访问的端口好
+    });
     console.log('开发环境');
+    // 监听资源的变化并且刷新
+    gulp.watch(`${ PATHS.src }/less/**/*.less`, ['tocss']).on("change",bs.reload);
+});
+
+// 开启服务器
+gulp.task('nodemon',()=>{
+    return nodemon({
+            script: 'app.js'
+        });
 });
 
 // less 文件转换成css文件
