@@ -23,7 +23,7 @@
     $ npm run start
 
     5.在浏览器上查看效果
-    http://localhost:9000/index.html
+    http://localhost:9000/index.html(自动弹出来⚠️首次加载的时候请手动刷新一下，因为加载慢)
 
 
 ```
@@ -121,5 +121,5 @@
 
 [gulp中文网](http://www.gulpjs.com.cn/)
 
-[BrowserSync](http://www.browsersync.cn/) 省时的浏览器同步测试工具
+[BrowserSync](https://browsersync.io/) 
 

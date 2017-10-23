@@ -9,6 +9,12 @@ import gulpif from 'gulp-if'; // https://www.npmjs.com/package/gulp-if
 import less from 'gulp-less'; // https://www.npmjs.com/package/gulp-less
 import htmlmin from 'gulp-htmlmin'; // http://www.ydcss.com/archives/20 https://github.com/jonschlinkert/gulp-htmlmin
 import replace from 'gulp-replace'; // https://www.npmjs.com/package/gulp-replace
+import nodemon from 'gulp-nodemon'; // https://www.npmjs.com/package/gulp-nodemon
+import browserSync from 'browser-sync';// http://www.browsersync.cn/
+
+var config = require('./config');
+// 创建服务
+var bs = browserSync.create();
 
 // 判断条件,需要提前定义
 const minCondition = function(f){
@@ -35,6 +41,20 @@ const PATHS ={
 gulp.task('default',()=>{
     gulp.start(['tocss','mincss','minjs']);
 });
+
+gulp.task('serve',()=>{
+    nodemon({
+      script: 'app.js',
+    });
+  }).on('start',()=>{
+    browserSync.init({ 
+        proxy: 'http://localhost:'+config.port+'/index.html', 
+        files: ["public/**/*.*", "views/**", "routes/**"],
+        port: 9000
+    }, function() { 
+        console.log("browser refreshed.");
+    });
+  });
 
 // 压缩html -- 开发环境隐藏
 // gulp.task('minhtml',()=>{

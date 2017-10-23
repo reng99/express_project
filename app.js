@@ -24,6 +24,12 @@ var app =express();
 // 引入User model
 var User = require('./models/User');
 
+// 引入相关的配置
+var config = require('./config')
+
+// 监听的端口
+var port = config.port;
+
 
 // 设置静态文件托管
 // 当用户访问的url是以 /public 开始，那么就直接返回对应的__dirname+'/public'下的文件夹
@@ -96,7 +102,7 @@ mongoose.connect('mongodb://localhost:27019/express_project',function(err){
     }else{
         console.log("数据库链接成功");
         // 数据库成功后开始监听http请求
-        app.listen(9000);
+        app.listen(port);
     }
 })
 
