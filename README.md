@@ -20,7 +20,7 @@
     $ npm install
 
     4.启动应用
-    $ npm run start
+    $ npm run dev
 
     5.在浏览器上查看效果
     http://localhost:9000/index.html(自动弹出来⚠️首次加载的时候请手动刷新一下，因为加载慢)
