@@ -50,7 +50,7 @@ gulp.task('serve',()=>{
     browserSync.init({ 
         proxy: 'http://localhost:'+config.port+'/index.html', 
         files: ["public/**/*.*", "views/**", "routes/**"],
-        port: 9000
+        port: 9000 // 实际上访问的端口好
     }, function() { 
         console.log("browser refreshed.");
     });
