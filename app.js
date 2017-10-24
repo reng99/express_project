@@ -77,7 +77,7 @@ app.use(function(req,res,next){
     next();// 不可以漏
 });
 
-// 更具不同的功能划分模块
+// 根据不同的功能划分模块
 app.use('/',require('./routers/main')); // 前端模块
 app.use('/admin',require('./routers/admin')); //后端模块
 app.use('/frontend_api',require('./routers/api/frontend')); // 针对前端的 api 模块

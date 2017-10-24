@@ -4,14 +4,3 @@
 //     console.log('index js');
 // });
 // console.log('reng');
-
-class Animal{
-    constructor(){
-        console.log("==constructor animal==");
-    }
-    sayHello(){
-        console.log("==sayHello animal==");
-    }
-}
-
-export default Animal;
