@@ -19,11 +19,14 @@
     3.安装相关以来
     $ npm install
 
-    4.启动应用
+    4.启动应用（生产环境）
     $ npm run dev
 
     5.在浏览器上查看效果
     http://localhost:9000/index.html(自动弹出来⚠️首次加载的时候请手动刷新一下，因为加载慢)
+
+    6.压缩资源（开发环境）
+    $ npm run build（会在根目录下生成dist文件夹）
 
 
 ```
@@ -64,6 +67,14 @@
 2. 相关的可视化管理工具 Robo 3T
 
 
+> 实时预览的解决方案
+
+[Browsersync + Gulp.js](https://browsersync.io/docs/gulp)
+
+[nodemon](https://nodemon.io/) // 用来启动node服务
+
+
+
 ### 项目背景
 
 (待补充)
@@ -78,14 +89,19 @@
     .
     ├── .vscode // vscode ide的相关的设置
     ├── db // 数据库 这里我使用了moogodb
+    ├── dist // 执行npm run build时候生成的压缩环境   
+    │   ├── css // 压缩后的样式 -- 对应public/css文件夹（生产环境替换）
+    │   ├── imgs // 压缩后的图片 -- 对应public/imgs文件夹（生产环境替换） 
+    │   ├── js // 压缩后的js -- 对应public/js文件夹（生产环境替换）
+    │   └── views // 压缩后的视图--对应根目录下的views文件夹（生产环境替换）
     ├── doc // 相关文档
     │   └── api.md // api说明
     ├── models // 模型 用于操作表
     ├── node_modules // 项目的依赖 执行npm install 后产生
-    ├── public // 静态资源（注意⚠️css和js文件夹内的压缩后的资源不可进行编写操作哦，由gulp统一产生）
+    ├── public // 静态资源
     │   ├── css // 我这里限定存放公共的样式
-    │   │   ├── backend // 存放后端的公共样式，允许但不建议内嵌文件夹（防止和压缩后的文件产生冲突）
-    │   │   └── frontend // 存放前端的公共样式，允许但不建议内嵌文件夹（防止和压缩后的文件产生冲突）
+    │   │   ├── backend // 存放后端的公共样式，允许但不建议内嵌文件夹（防止和less生成的文件产生冲突）
+    │   │   └── frontend // 存放前端的公共样式，允许但不建议内嵌文件夹（防止和less生成的文件产生冲突）
     │   ├── imgs // 图片资源
     │   │   ├── backend // 后端使用到的图片
     │   │   └── frontend // 前端使用到的图片
@@ -110,8 +126,11 @@
     │   ├── admin // 后台视图
     │   └── main // 前台视图
     ├── .babelrc //babel的相关配置 
+    ├── .gitignore //提交github时忽略提交的内容 
     ├── app.js //应用程序入口
+    ├── config.js // 相关的配置文件
     ├── gulpfile.babel.js //gulp相关配置
+    ├── package-lock.json // 当node_modules或者package.json发生变动时产生
     ├── package.json //nodejs相关配置
     └── README.md //说明文件 项目的说明
 
