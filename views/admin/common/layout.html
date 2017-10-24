@@ -1,0 +1,31 @@
+<!-- 前台的总体布局 -->
+<html lang="en">
+    <head>
+        <!-- 引入公共的样式和js -->
+        {% include './quote.html' %}
+    </head>
+    <body class="skin-blue sidebar-mini sidebar-open">
+        <!-- 页面自己单独引入的css和javascript 部分 -->
+        {% block cssJs %}{% endblock %}
+
+        <div class="wrapper">
+            <!-- header -->
+            {% include './header.html' %}
+        
+            <!--main sidebar-->
+            {% include './aside.html' %}
+    
+            <!--content-wrapper-->
+            <div class="content-wrapper">
+                <!-- breadcrumb nav -->
+                {% include './breadcrumb.html' %}
+
+                <!-- 主题部分 也是差异的部分 也是重写的部分(main) -->
+                {% block main %}{% endblock %}
+            </div>
+        
+            <!-- footer -->
+            {% include './footer.html' %}
+        </div>
+    </body>
+</html>
