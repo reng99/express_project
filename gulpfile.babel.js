@@ -54,10 +54,11 @@ gulp.task('dev',['nodemon'],()=>{
     console.log('开发环境');
     // 监听资源的变化并且刷新
     gulp.watch(`${ PATHS.src }/less/**/*.less`, ['tocss']).on("change",bs.reload);
+    gulp.watch(`${ PATHS.src }es6/**/*.js`, ['toes5']).on("change",bs.reload);
 });
 
 // 开启服务器
-gulp.task('nodemon',()=>{
+gulp.task('nodemon',['tocss','toes5'],()=>{
     return nodemon({
             script: 'app.js'
         });
@@ -70,6 +71,14 @@ gulp.task('tocss',()=>{
         .pipe(gulpif(lessCondition,less())) // less转换成css
         .pipe(cleanCSS()) // 压缩css
         .pipe(gulp.dest(`${ PATHS.src }/css/`));
+});
+
+// 将es6的语法转换成es5
+gulp.task('toes5',()=>{
+    return gulp.src(`${ PATHS.src }es6/**/*.js`)
+        .pipe(plumber()) // 防止流遇到错误时候中断（跳过错误）
+        .pipe(babel()) // 转换es6语法
+        .pipe(gulp.dest(`${ PATHS.src }js/`));
 });
 
 
@@ -103,7 +112,6 @@ gulp.task('mincss',()=>{
 gulp.task('minjs',()=>{
     return gulp.src(`${ PATHS.src }js/**/*.js`)
         .pipe(plumber()) // 防止流遇到错误时候中断（跳过错误）
-        .pipe(babel()) // 转换es6语法
         .pipe(gulpif(minCondition,uglify())) // 没有压缩过的js进行压缩,在压缩前要进行'babel()'将es6语法转换成es5，因为gulp-uglify不识别es6语法
         .pipe(gulpif(minCondition,rename({extname:'.min.js'}))) //  后缀名为非.min.js的进行重命名
         .pipe(gulp.dest(`${ PATHS.dest }js/`));
