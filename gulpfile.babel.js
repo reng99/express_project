@@ -11,7 +11,7 @@ import htmlmin from 'gulp-htmlmin'; // http://www.ydcss.com/archives/20 https://
 import replace from 'gulp-replace'; // https://www.npmjs.com/package/gulp-replace
 import nodemon from 'gulp-nodemon'; // https://www.npmjs.com/package/gulp-nodemon
 import browserSync from 'browser-sync';// http://www.browsersync.cn/
-import watch from 'gulp-watch';
+import watch from 'gulp-watch'; // https://www.npmjs.com/package/gulp-watch
 
 var config = require('./config');
 // 创建服务
