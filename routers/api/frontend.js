@@ -1,4 +1,4 @@
-// api模块
+// 前台api模块
 
 var express = require('express');
 var router = express.Router();

@@ -22,5 +22,12 @@ router.get('/index.html',function(req,res,next){
     res.render('admin/index.html',{});
 });
 
+/**
+ * 用户管理页面
+ */
+router.get('/user/index.html',function(req,res,next){
+    res.render('admin/user/index.html',{});
+})
+
 // 导出路由
 module.exports = router;
