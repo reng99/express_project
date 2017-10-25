@@ -114,10 +114,7 @@
     │   ├── less // less预处理器编写css
     │   │   ├── backend // 后端使用到的less
     │   │   └── frontend // 前端使用到的less  
-    │   └── lib // 第三方提供的资源 
-    │       ├── css // 提供的css
-    │       ├── js // 提供的js
-    │       └── fonts // 提供的字体     
+    │   └── lib // 第三方提供的资源   
     ├── routers // 路由，我的理解是mvc中的c
     │   ├── api // api路由
     │   │   ├── backend.js // 后台的api
