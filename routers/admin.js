@@ -35,13 +35,13 @@ router.get('/user/index.html',function(req,res,next){
      * skip(Number):忽略的条数
      */
     var page = Number(req.query.page || 1);// 当前的页数
-    var limit = 5;// 每页限制的条数
+    var limit = 10;// 每页限制的条数
     User.count().then(function(count){
         var pages = Math.ceil(count/limit); // 计算总页数
         page = Math.min(page,pages); // 取值不能超过pages
         page = Math.max(page,1); // 取值不能小于1
         var skip = (page-1)*limit; // 忽略的条数
-        User.find().limit(limit).skip(skip).then(function(users){
+        User.find().sort({"_id":-1}).limit(limit).skip(skip).then(function(users){// 这里进行了_id的降序排序
             res.render('admin/user/index.html',{
                 userInfo:req.userInfo,// 当前用户的信息
                 users:users,// 查询的用户

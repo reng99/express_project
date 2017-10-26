@@ -9,58 +9,69 @@
 {% block main %}
     <section class="content">
         <div class="row">
-            <div class="col-ms-12">
-                <div class="box box-primary">
-                    <div class="box-header"></div>
-                    <div class="box-body">
-                        <table class="table table-bordered table-striped dataTable" role="grid">
-                            <thead>
-                                <tr role="row">
-                                    <th width=20%;>id</th>
-                                    <th width=20%;>用户名</th>
-                                    <th width=20%;>密码</th>
-                                    <th width=20%;>是否是管理员</th>
-                                    <th width="20%">特殊操作</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for user in users %}
-                                <tr role="row">
-                                    <td>{{user._id.toString()}}</td>
-                                    <td>{{user.username}}</td>
-                                    <td>{{user.password}}</td>
-                                    <td>
-                                        {% if user.isAdmin%}
-                                        是
-                                        {% else %}
-                                        否
-                                        {% endif %}
-                                    </td>
-                                    <td><a href="javascript:;">删除</a></td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                        <div class="row">
-                            <div class="col-sm-5 dataTables_info">
-                                <div class="pagination pull-left">
-                                    当前第{{page}}页,总共<span id="totalPage">{{pages}}</span>页，包含{{count}}数据</div>
-                            </div>
-                            <div class="col-sm-7 dataTables_paginate paging_simple_numbers">
-                                <ul class="pagination pull-right">
-                                    <li class="paginate_button previous" id="previous">
-                                        <a href="/admin/user/index.html?page={{page-1}}" aria-controls="example1" data-dt-idx="0" tabindex="0">上一页</a>
-                                    </li>
-                                    <li class="paginate_button next" id="next">
-                                        <a href="/admin/user/index.html?page={{page+1}}" aria-controls="example1" data-dt-idx="7" tabindex="0">下一页</a>
-                                    </li>
-                                </ul>
+            <div class="col-md-12">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="javascript:;">全部用户</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">管理员</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">普通用户</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active">
+                            <table class="table table-bordered table-striped dataTable" role="grid">
+                                    <thead>
+                                        <tr role="row">
+                                            <th width=20%;>id</th>
+                                            <th width=20%;>用户名</th>
+                                            <th width=20%;>密码</th>
+                                            <th width=20%;>是否是管理员</th>
+                                            <th width="20%">特殊操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for user in users %}
+                                        <tr role="row">
+                                            <td>{{user._id.toString()}}</td>
+                                            <td>{{user.username}}</td>
+                                            <td>{{user.password}}</td>
+                                            <td>
+                                                {% if user.isAdmin%}
+                                                是
+                                                {% else %}
+                                                否
+                                                {% endif %}
+                                            </td>
+                                            <td><a href="javascript:;">删除</a></td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-sm-5 dataTables_info">
+                                        <div class="pagination pull-left">
+                                            当前第{{page}}页,总共<span id="totalPage">{{pages}}</span>页，包含{{count}}数据</div>
+                                    </div>
+                                    <div class="col-sm-7 dataTables_paginate paging_simple_numbers">
+                                        <ul class="pagination pull-right">
+                                            <li class="paginate_button previous" id="previous">
+                                                <a href="/admin/user/index.html?page={{page-1}}" aria-controls="example1" data-dt-idx="0" tabindex="0">上一页</a>
+                                            </li>
+                                            <li class="paginate_button next" id="next">
+                                                <a href="/admin/user/index.html?page={{page+1}}" aria-controls="example1" data-dt-idx="7" tabindex="0">下一页</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
     </section>
 {% endblock %}
