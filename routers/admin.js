@@ -26,7 +26,13 @@ router.get('/index.html',function(req,res,next){
  * 用户管理页面
  */
 router.get('/user/index.html',function(req,res,next){
-    res.render('admin/user/index.html',{});
+    User.find().then(function(users){
+        res.render('admin/user/index.html',{
+            userInfo:req.userInfo,
+            users:users
+        });
+    });
+    
 })
 
 // 导出路由

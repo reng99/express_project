@@ -24,50 +24,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for user in users %}
                                 <tr role="row">
-                                    <td>reng reng reng reng reng</td>
-                                    <td>jia</td>
-                                    <td>Gecko</td>
-                                    <td>Gecko</td>
+                                    <td>{{user._id.toString()}}</td>
+                                    <td>{{user.username}}</td>
+                                    <td>{{user.password}}</td>
+                                    <td>
+                                        {% if user.isAdmin%}
+                                        是
+                                        {% else %}
+                                        否
+                                        {% endif %}
+                                    </td>
                                     <td><a href="javascript:;">删除</a></td>
                                 </tr>
-                                <tr role="row">
-                                    <td>reng</td>
-                                    <td>jia</td>
-                                    <td>Gecko</td>
-                                    <td>Gecko</td>
-                                    <td><a href="javascript:;">删除</a></td>
-                                </tr>
-                                <tr role="row">
-                                    <td>reng</td>
-                                    <td>jia</td>
-                                    <td>Gecko</td>
-                                    <td>Gecko</td>
-                                    <td><a href="javascript:;">删除</a></td>
-                                </tr>
-                                <tr role="row">
-                                    <td>reng</td>
-                                    <td>jia</td>
-                                    <td>Gecko</td>
-                                    <td>Gecko</td>
-                                    <td><a href="javascript:;">删除</a></td>
-                                </tr>
-                                <tr role="row">
-                                    <td>reng</td>
-                                    <td>jia</td>
-                                    <td>Gecko</td>
-                                    <td>Gecko</td>
-                                    <td><a href="javascript:;">删除</a></td>
-                                </tr>
+                                {% endfor %}
                             </tbody>
-                            <tfoot>
-                                <tr role="row">
-                                    <th>12</th>
-                                    <th>34</th>
-                                    <th>56</th>
-                                    <th>78</th>
-                                </tr>
-                            </tfoot>
                         </table>
                         <div class="row">
                             <div class="col-sm-5 dataTables_info">
