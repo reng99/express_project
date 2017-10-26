@@ -19,19 +19,40 @@ router.use(function(req,res,next){// 这里虽然没有写路由，表示的是�
  * 首页
  */
 router.get('/index.html',function(req,res,next){
-    res.render('admin/index.html',{});
+    console.log(req.userInfo);
+    res.render('admin/index.html',{
+        userInfo:req.userInfo
+    });
 });
 
 /**
  * 用户管理页面
  */
 router.get('/user/index.html',function(req,res,next){
-    User.find().then(function(users){
-        res.render('admin/user/index.html',{
-            userInfo:req.userInfo,
-            users:users
+    /**
+     * 从数据库中读取用户的数据
+     * limit(Number):限制获取的数据条数
+     * skip(Number):忽略的条数
+     */
+    var page = Number(req.query.page || 1);// 当前的页数
+    var limit = 5;// 每页限制的条数
+    User.count().then(function(count){
+        var pages = Math.ceil(count/limit); // 计算总页数
+        page = Math.min(page,pages); // 取值不能超过pages
+        page = Math.max(page,1); // 取值不能小于1
+        var skip = (page-1)*limit; // 忽略的条数
+        User.find().limit(limit).skip(skip).then(function(users){
+            res.render('admin/user/index.html',{
+                userInfo:req.userInfo,// 当前用户的信息
+                users:users,// 查询的用户
+                count:count,// 总的用户的条数
+                limit:limit,
+                pages:pages,// 总的页数
+                page:page // 当前的第几页
+            });
         });
     });
+    
     
 })
 
