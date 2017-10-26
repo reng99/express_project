@@ -1,5 +1,3 @@
-"use strict";
-
 // 控制用户管理的页面
 
 $(function () {

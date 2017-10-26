@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-sm-5 dataTables_info">
+        <div class="pagination pull-left">
+            当前第{{page}}页,总共<span id="totalPage">{{pages}}</span>页，包含{{count}}数据</div>
+    </div>
+    <div class="col-sm-7 dataTables_paginate paging_simple_numbers">
+        <ul class="pagination pull-right">
+            <li class="paginate_button previous" id="previous">
+                <a href="/admin/user/index.html?page={{page-1}}" aria-controls="example1" data-dt-idx="0" tabindex="0">上一页</a>
+            </li>
+            <li class="paginate_button next" id="next">
+                <a href="/admin/user/index.html?page={{page+1}}" aria-controls="example1" data-dt-idx="7" tabindex="0">下一页</a>
+            </li>
+        </ul>
+    </div>
+</div>

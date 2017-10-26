@@ -1,5 +1,3 @@
-"use strict";
-
 // 后台公共的javascript的部分
 
 $(function () {
@@ -16,5 +14,17 @@ $(function () {
                 }
             });
         });
+    })();
+
+    // 侧边栏目的选定状态
+    (function(){
+        var href = window.location.href;
+        if(href.indexOf('/category')!=-1){
+            $("#sidebar_category").addClass("active");
+        }
+        if(href.indexOf('/user')!=-1){
+            $("#sidebar_user").addClass("active");
+        }
+        
     })();
 });
