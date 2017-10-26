@@ -7,7 +7,7 @@ $(function(){// 页面加载完成后进行调用
         // 通过ajax提交请求
         $.ajax({
             type:'post',
-            url:'/frontend_api/user/register',// 后端提供的地址
+            url:'/api/user/register',// 后端提供的地址
             data:{// 客户端传过去给后端的数据
                 username:$register.find('[name="username"]').val(),
                 password:$register.find('[name="password"]').val(),

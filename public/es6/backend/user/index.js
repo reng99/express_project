@@ -2,7 +2,5 @@
 
 $(function(){
     
-    (function(){
-        console.log("reng");
-    })();
+    
 });

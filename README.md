@@ -116,9 +116,7 @@
     │   │   └── frontend // 前端使用到的less  
     │   └── lib // 第三方提供的资源   
     ├── routers // 路由，我的理解是mvc中的c
-    │   ├── api // api路由
-    │   │   ├── backend.js // 后台的api
-    │   │   └── frontend.js // 前台的api
+    │   ├── api // 公共api路由
     │   ├── admin.js // 后台路由
     │   └── main.js // 前台路由
     ├── schemas //相关的表结构 

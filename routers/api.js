@@ -3,7 +3,7 @@
 var express = require('express');
 var router = express.Router();
 // 引入model中的User构造函数
-var User = require('../../models/User');
+var User = require('../models/User');
 
 // 统一的返回格式
 var responseData;
