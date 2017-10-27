@@ -52,6 +52,9 @@ router.get('/user/index.html',function(req,res,next){
             });
         });
     });
+    // User.find({username:'r'}).then(function(user){
+    //     console.log(user);
+    // });
 })
 
 /**

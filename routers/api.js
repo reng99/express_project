@@ -130,4 +130,20 @@ router.get('/user/logout',function(req,res,next){
     res.json(responseData);
 })
 
+/**
+ * 删除用户
+ */
+router.post('/user/remove',function(req,res,next){
+    var _id = req.body._id;
+    // 查询数据库删除对应的用户
+    User.remove({_id:_id}).then(function(){
+        responseData.message = '删除成功';
+        res.json(responseData);
+    }).then(function(){
+        responseData.message = '删除失败';
+        responseData.code = 1;
+        res.json(responseData);
+    });
+});
+
 module.exports = router;

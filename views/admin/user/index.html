@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block main %}
-    <section class="content">
+    <section class="content" id="users">
         <div class="row">
             <div class="col-md-12">
                 <div class="nav-tabs-custom">
@@ -37,7 +37,7 @@
                                 <tbody>
                                     {% for user in users %}
                                     <tr role="row">
-                                        <td>{{user._id.toString()}}</td>
+                                        <td class="user_id">{{user._id.toString()}}</td>
                                         <td>{{user.username}}</td>
                                         <td>{{user.password}}</td>
                                         <td>
@@ -47,7 +47,7 @@
                                             否
                                             {% endif %}
                                         </td>
-                                        <td><a href="javascript:;">删除</a></td>
+                                        <td><a href="javascript:;" class="remove">删除</a></td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>

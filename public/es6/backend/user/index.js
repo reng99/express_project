@@ -12,4 +12,24 @@ $(function () {
             $("#next").addClass("disabled");
         }
     })();
+
+    // 删除指定的用户
+    (function(){
+        $("#users .remove").on("click", function () {
+            var _this = $(this);
+            // 通过ajax提交请求
+            $.ajax({
+                type: 'post',
+                url: '/api/user/remove', // 后端提供的api
+                data: {
+                    _id:_this.parent().parent().find('.user_id').text()
+                },
+                success: function success(result) {
+                    if(!result.code){
+                        window.location.reload();
+                    }
+                }
+            });
+        });
+    })();
 });
