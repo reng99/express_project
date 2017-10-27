@@ -41,7 +41,7 @@
 
 2.构建工具gulp
 
-3.包管理工具  npm
+3.包管理工具npm
 
 4.jquery库
 
@@ -55,9 +55,11 @@
 
 2. nodeJS技术
 
-3. 使用的库，jquery bootstrap
+3. 使用的库，jquery
 
 4. 使用后台框架 express
+
+5. ui框架adminlte
 
 
 > 数据库
