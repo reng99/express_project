@@ -32,4 +32,11 @@ $(function () {
             });
         });
     })();
+
+    // 切换用户的tab
+    (function(){
+        $("#users .nav-tabs li").click(function(){
+            $(this).addClass('active').siblings().removeClass('active');
+        })
+    })();
 });
