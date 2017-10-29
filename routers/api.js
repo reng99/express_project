@@ -117,6 +117,7 @@ router.post('/user/login',function(req,res,next){
             username: userInfo.username,
             isAdmin: userInfo.isAdmin // 是否是管理员的标志,需要，防止改变url登录
         }));
+        // console.log('process');
         res.json(responseData);
         return;
     });

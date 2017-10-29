@@ -19,7 +19,7 @@ router.use(function(req,res,next){// 这里虽然没有写路由，表示的是�
  * 首页
  */
 router.get('/index.html',function(req,res,next){
-    console.log(req.userInfo);
+    // console.log(req.userInfo);
     res.render('admin/index.html',{
         userInfo:req.userInfo
     });
