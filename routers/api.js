@@ -4,6 +4,8 @@ var express = require('express');
 var router = express.Router();
 // 引入model中的User构造函数
 var User = require('../models/User');
+// 引入分类模型
+var Category = require('../models/Category');
 
 // 统一的返回格式
 var responseData;
@@ -145,6 +147,13 @@ router.post('/user/remove',function(req,res,next){
         responseData.code = 1;
         res.json(responseData);
     });
+});
+
+/**
+ * 分类的添加保存
+ */
+router.post('/category/add',function(req,res,next){
+    console.log(req.body);
 });
 
 module.exports = router;

@@ -3,7 +3,7 @@
 
 <!-- 引入分类相关的资源css和js资源 -->
 {% block cssJs %}
-
+<script type="text/javascript" src="/public/js/backend/category/index.js"></script>
 {% endblock %}
 
 <!-- 重写main部分 -->
@@ -17,12 +17,12 @@
                 </div>
                 <div class="box-body">
                     <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                        <label for="exampleInputEmail1">分类名称</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入分类名称">
+                        <label for="category_name">分类名称</label>
+                        <input type="text" class="form-control" id="category_name" placeholder="请输入分类名称">
                     </div>
                 </div>
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">确定</button>
+                    <button type="submit" class="btn btn-primary" id="category_btn">确定</button>
                 </div>
             </div>
         </div>

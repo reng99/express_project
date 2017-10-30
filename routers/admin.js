@@ -5,8 +5,6 @@ var router = express.Router();
 
 // 引入用户的模型
 var User = require('../models/User');
-// 引入分类模型
-var Category = require('../models/Category');
 
 router.use(function(req,res,next){// 这里虽然没有写路由，表示的是任意路由，如 “/admin” "admin/user" etc,这里表示一进来url就初始化
     if(!req.userInfo.isAdmin){
