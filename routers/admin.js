@@ -63,11 +63,14 @@ router.get('/user/index.html',function(req,res,next){
  * 分类管理
  */
 router.get('/category/index.html',function(req,res,next){
-    res.render('admin/category/index.html',{});
+    res.render('admin/category/index.html',{
+        userInfo:req.userInfo
+    });
 });
 router.get('/category/add.html',function(req,res,next){
-    res.render('admin/category/add.html',{});
+    res.render('admin/category/add.html',{
+        userInfo:req.userInfo
+    });
 });
-
 // 导出路由
 module.exports = router;
