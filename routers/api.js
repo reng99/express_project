@@ -153,7 +153,33 @@ router.post('/user/remove',function(req,res,next){
  * 分类的添加保存
  */
 router.post('/category/add',function(req,res,next){
-    console.log(req.body);
+    var name = req.body.name || '';
+    if(name==''){
+        responseData.message='分类名称不能为空';
+        responseData.code = 1;
+        res.json(responseData);
+        return;
+    }
+    // 数据库中是否存在同名的分类名称
+    Category.findOne({
+        name:name
+    }).then(function(rs){
+        if(rs){
+            responseData.message = '分类名称已经存在';
+            responseData.code = 2;
+            res.json(responseData);
+            return Promise.reject();
+        }else{
+            responseData.message = '分类名称添加成功，3秒后跳转到分类首页';
+            responseData.code = 0;
+            res.json(responseData);
+            // 数据库中不存在该分类，保存
+            return new Category({
+                name:name
+            }).save();
+            
+        }
+    })
 });
 
 module.exports = router;

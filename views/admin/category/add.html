@@ -3,12 +3,20 @@
 
 <!-- 引入分类相关的资源css和js资源 -->
 {% block cssJs %}
+<style>
+    #category .add_succ{
+        color:#3c8dbc;
+    }
+    #category .add_err{
+        color:#f00;
+    }
+</style>
 <script type="text/javascript" src="/public/js/backend/category/index.js"></script>
 {% endblock %}
 
 <!-- 重写main部分 -->
 {% block main %}
-<section class="content">
+<section class="content" id="category">
     <div class="row">
         <div class="col-md-12">
             <div class="box box-primary">
@@ -17,7 +25,8 @@
                 </div>
                 <div class="box-body">
                     <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                        <label for="category_name">分类名称</label>
+                        <label for="category_name">分类名称</label>&nbsp;
+                        <span class="add_hint"></span>
                         <input type="text" class="form-control" id="category_name" placeholder="请输入分类名称">
                     </div>
                 </div>
