@@ -73,4 +73,23 @@ $(function () {
             }, 500);
         });
     })();
+
+    /**
+     * 侧边栏的微信展示
+     */
+    (function(){
+        var $showAvatar = $("#fixedTool .showAvatar");
+        var $weixin = $("#fixedTool .weixin");
+        var $flag = false;
+        $weixin.on('click',function(){
+            if(!$flag){
+                $showAvatar.show();
+                $flag = !$flag;
+            }else{
+                $showAvatar.hide();
+                $flag = !$flag;
+            }
+        })
+        
+    })();
 });

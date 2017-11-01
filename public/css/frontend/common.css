@@ -217,6 +217,7 @@ footer .copyRight .origin:hover{
 #fixedTool li{
     height: 60px;
     border-top:1px solid #e5e5e5;
+    position: relative;
 }
 #fixedTool li:first-child{
     border-top:none;
@@ -239,4 +240,30 @@ footer .copyRight .origin:hover{
 }
 #fixedTool li:last-child{
     display: none;
+}
+#fixedTool .showAvatar{
+    width:114px;
+    height: 100px;
+    position: absolute;
+    left:-116px;
+    top:-20px;
+    display: none;
+}
+#fixedTool .codeProfile{
+    display: block;
+    width:100px;
+    height: 100px;
+    border:1px solid #09c7d1;
+    float: left;
+}
+#fixedTool .triangle-right{
+    width:0;
+    height: 0;
+    display: block;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 12px solid #09c7d1;
+    position: absolute;
+    left:102px;
+    top:44px;
 }
