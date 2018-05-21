@@ -12,7 +12,7 @@
     2.进入本目录
     $ cd express_project
 
-    3.安装相关以来
+    3.安装相关依赖
     $ npm install
 
     4.启动应用（生产环境）
